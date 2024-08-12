@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcCash";
+
+package cashservice;
+
+service CashService {
+    rpc GetCashData (CashRequest) returns (stream CashData);
+}
+
+message CashRequest {
+    int32 page_number = 1;
+    int32 page_size = 2;
+}
+
+message CashData {
+    string client_code             = 1;
+    int64 purchasing_power_total   = 2;
+    int64 cash_amount              = 3;
+    int64 advance_amount           = 4;
+    int64 remaining_buying_power   = 5;
+    int64 pending_buy_cash         = 6;
+    int64 matched_buy_cash         = 7;
+    int64 transferring_amount      = 8;
+    int64 remaining_cash_amount    = 9;
+    int64 remaining_debt           = 10;
+    int64 intraday_debt            = 11;
+    int64 debt_interest            = 12;
+    int64 receivable_cash_t0       = 13;
+    int64 receivable_cash_t1       = 14;
+    int64 receivable_cash_t2       = 15;
+    int64 receivable_mature_cw     = 16;
+    int64 receivable_cash_other    = 17;
+    int64 receivable_cash_total    = 18;
+    int64 receivable_cash_oddlot   = 19;
+    int64 receivable_cash_dividend = 20;
+    int64 fees                     = 21;
+    int64 net_asset_value          = 22;
+    int64 saving                   = 23;
+    int64 saving_total             = 24;
+    string datetime                = 25;
+}
